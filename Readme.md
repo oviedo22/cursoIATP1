@@ -111,31 +111,31 @@ Se generaron las siguientes visualizaciones:
 
 ### ¿Por qué el metal no es mainstream hoy en día?
 
-El análisis sobre 114.000 canciones de Spotify permite responder esta pregunta con datos concretos. El metal no es mainstream porque su perfil de atributos es estructuralmente opuesto al perfil de las canciones más populares en casi todas las dimensiones relevantes.
+El análisis sobre 114.000 canciones de Spotify permite responder esta pregunta con datos concretos.
 
 ### Respuesta a hipótesis
 
-**H6 — El metal es el opuesto del mainstream**
-Las canciones más populares de Spotify tienen alta danceability, alta valence y baja instrumentalness. El metal tiene exactamente lo contrario — baja danceability, baja valence y alta instrumentalness. La distancia euclidiana entre ambos perfiles confirma que no es una diferencia marginal sino estructural. El metal no está cerca del mainstream — está en el extremo opuesto.
+**H6 — El metal es opuesto al mainstream en acousticness y danceability, pero no en todo**
+La mayor diferencia entre el mainstream y el metal está en `acousticness` (+0.249 a favor del mainstream) y `danceability` (+0.119). Sorprendentemente, el metal supera al mainstream en `energy` (-0.196, es decir el metal tiene más) y en `loudness` y `tempo`. La distancia euclidiana confirma que metal (2.53) y heavy-metal (2.37) están estructuralmente alejados del mainstream, siendo el heavy-metal levemente más cercano.
 
-**H7 — Alt-rock y alternative son el puente**
-Dentro de los subgéneros de metal y rock, alt-rock y alternative son los más cercanos al mainstream. Tienen mayor danceability y valence que el metal o el heavy-metal, y menor instrumentalness. El grunge y el heavy-metal son los más alejados. Esto sugiere que los subgéneros que incorporan elementos más melódicos y emocionales tienen más chances de penetrar al público masivo.
+**H7 — Alternative es el subgénero más cercano al mainstream**
+El ranking de distancia euclidiana al mainstream es claro: `alternative` (1.51) y `alt-rock` (1.73) son los más cercanos, mientras que `grunge` (2.35) es el más lejano. Esto confirma que los subgéneros que incorporan elementos más melódicos y menos agresivos tienen mayor afinidad con el perfil de canciones populares.
 
-**H8 — El metal popular traiciona al género**
-Las canciones de metal que logran mayor popularidad relativa dentro del género tienen un perfil más cercano al mainstream que las menos populares. Más danceability, más valence, menos instrumentalness. El metal que más éxito tiene es el que más se aleja de las características que definen al género. Es una trampa estructural — para ser popular hay que dejar de sonar a metal.
+**H8 — CONFIRMADA: el metal popular traiciona al género**
+Las canciones de metal con mayor popularidad relativa (Q4) tienen una distancia de 1.99 al mainstream, mientras que las menos populares (Q1) tienen 2.01. La diferencia es pequeña (+0.023) pero consistente — el metal que logra popularidad tiene más danceability (0.468 vs 0.434), más valence (0.425 vs 0.379) y menos instrumentalness (0.052 vs 0.106). Para tener éxito dentro del género, hay que alejarse de sus características más extremas.
 
-**H9 — Hip-hop y reggaeton encajan perfecto con el algoritmo**
-El hip-hop y el reggaeton lideran en popularidad porque maximizan exactamente los atributos que más se asocian con popularidad en Spotify — danceability y valence altas — y minimizan los que se asocian negativamente — instrumentalness y acousticness bajas. No es casualidad. Su dominio del mainstream refleja una alineación casi perfecta con lo que el algoritmo de Spotify premia y recomienda.
+**H9 — PARCIALMENTE CONFIRMADA con un hallazgo inesperado**
+Las correlaciones con popularidad son sorprendentemente bajas en todo el dataset: el atributo más correlacionado es `danceability` con apenas 0.06. Esto indica que los atributos de audio por sí solos explican muy poco de la popularidad en Spotify. Sin embargo, el ranking de géneros en los atributos premiados confirma que reggaeton (0.758), latin (0.738) y hip-hop (0.715) lideran en danceability, mientras que metal (0.468) y heavy-metal (0.428) están al final. Curiosamente, en popularidad promedio `pop` lidera (58.4) seguido de `metal` (55.0) y `hip-hop` (53.3), lo que refuerza que la popularidad depende de factores más allá del audio.
 
 ### Hallazgo central
 
-El declive del metal en el mainstream no es solo cultural — está codificado en los datos. El algoritmo de Spotify favorece canciones bailables, alegres y con voz prominente. El metal es exactamente lo contrario en las tres dimensiones. Mientras el hip-hop y el reggaeton evolucionaron hacia formatos que el algoritmo premia, el metal mantuvo su identidad sonora. El costo de esa integridad es la invisibilidad algorítmica.
+El metal no es mainstream principalmente porque tiene baja `acousticness` y baja `danceability` respecto al perfil de canciones populares — no por su alta energía, que no penaliza la popularidad tanto como se esperaba. Las correlaciones bajas entre atributos de audio y popularidad revelan que el algoritmo de Spotify está influenciado por factores externos al sonido: marketing, playlists editoriales y viralidad en redes sociales pesan más que cualquier característica musical. El metal mantiene su identidad sonora, pero esa identidad lo deja fuera de los circuitos de recomendación masiva.
 
 ### Limitaciones del análisis
 
+- Las correlaciones entre atributos de audio y popularidad son muy bajas (máximo 0.06), lo que indica que el audio explica poco de la popularidad real en Spotify.
 - La popularidad de Spotify no equivale a popularidad cultural total. Un artista puede ser masivo en vivo o en radio y tener baja popularidad en la plataforma.
 - El dataset no tiene fechas de lanzamiento confiables, por lo que no fue posible analizar la evolución temporal del metal desde los 90 hasta hoy.
-- La popularidad en Spotify está influenciada por factores externos al audio — marketing, playlists editoriales, viralidad en redes sociales — que estos datos no capturan.
 - La correlación no implica causalidad. Que danceability correlacione con popularidad no significa que hacer una canción más bailable la vuelva más popular.
 
 ---
@@ -145,9 +145,9 @@ El declive del metal en el mainstream no es solo cultural — está codificado e
 ```
 tp1-eda-spotify/
 │
-├── README.md                          # Este archivo
-├── dataset.csv                        # Dataset original de Kaggle
-└── TP1_EDA_Spotify.ipynb             # Notebook con el análisis completo
+├── README.md                              # Este archivo
+├── dataset.csv                            # Dataset original de Kaggle (no incluido en el repo)
+└── TP1_EDA_Spotify_Oviedo.ipynb          # Notebook con el análisis completo
 ```
 
 ---
@@ -168,3 +168,6 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 ```
 
 ---
+
+*Trabajo Práctico N°1 — Análisis Exploratorio de Datos*
+*Curso de IA con Machine Learning*
