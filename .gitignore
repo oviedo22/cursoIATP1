@@ -1,0 +1,9 @@
+env
+.env
+venv
+__pycache__/
+dataset.csv
+
+TP1_EDA_Spotify.ipynb
+
+ReadmeCeldas.md
